@@ -1,0 +1,31 @@
+﻿app:
+  name: KANA_VULN_SYSTEM
+  log_level: INFO
+
+database:
+  engine: sqlite
+  dsn: data/state/kana_vuln.db
+
+integrations:
+  upwork:
+    base_url: https://www.upwork.com/api
+    api_token_env: UPWORK_API_TOKEN
+  hackerone:
+    base_url: https://api.hackerone.com
+    username_env: HACKERONE_API_USERNAME
+    token_env: HACKERONE_API_TOKEN
+  bugcrowd:
+    base_url: https://api.bugcrowd.com
+    api_token_env: BUGCROWD_API_TOKEN
+
+scanner:
+  nuclei_binary: nuclei
+  nuclei_templates: ""
+  nmap_binary: nmap
+  subfinder_binary: subfinder
+  default_severities:
+    - critical
+    - high
+    - medium
+    - low
+  timeout_seconds: 600
